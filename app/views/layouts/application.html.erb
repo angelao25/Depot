@@ -20,6 +20,7 @@
 
     <section class="flex">
       <nav class="bg-green-900 p-6">
+        <%= render partial: 'layouts/cart', locals: {cart: @cart } %>
         <ul class="text-gray-300 leading-8">
           <li><a href="/">Home</a></li>
           <li><a href="/">Questions</a></li>
@@ -28,7 +29,6 @@
           <li><%= Time.now %></li>
         </ul>
       </nav>
-
       <main class="container mx-auto mt-4 px-5 flex">
         <%= yield %>
       </main>
