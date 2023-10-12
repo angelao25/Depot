@@ -1,32 +1,28 @@
-<% if line_item and not line_item.quantity < 1 %>
-    <div id="line_item" class="bg-cyan-700">
-      <% if line_item == @current_item %>
-      <tr class="line-item-highlight">
-      <% else %>
-      <tr>
-      <% end %>
-        <td class="text-right"><%= line_item.quantity %></td>
-        <td>&times;</td>
-        <td class="pr-2">
-          <%= line_item.product.title %>
-        </td>
-        <td class="text-right font-bold">
-          <%= number_to_currency(line_item.total_price) %>
-        </td>
-        <% if line_item.quantity >= 1 %>
-        <td class="text-right">
-          <%= button_to '-', decrement_line_item_path(line_item), method: :patch,
-          form_class: 'inline',
-          class: 'ml-4 rounded-lg py-1 px-2 text-black bg-red-400' %>
-        </td>
-        <% else %>
-          <td></td>
-        <% end %>
-        <td class="text-right">
-          <%= button_to 'Delete Item', line_item, method: :delete, class: 'ml-4 rounded-lg py-1 px-2 text-black bg-blue-400' %>
-        </td>
-      </tr>
-    </div>
-<% else %>
-    <div id="line_item" class="bg-cyan-700"></div>
-<% end %>
+<div id="line_item">
+  <% if line_item == @current_item %>
+  <tr class="line-item-highlight">
+  <% else %>
+  <tr>
+  <% end %>
+    <td class="text-right"><%= line_item.quantity %></td>
+    <td>&times;</td>
+    <td class="pr-2">
+      <%= line_item.product.title %>
+    </td>
+    <td class="text-right font-bold">
+      <%= number_to_currency(line_item.total_price) %>
+    </td>
+    <% if line_item.quantity >= 1 %>
+    <td class="text-right">
+      <%= button_to '-', decrement_line_item_path(line_item), method: :patch,
+      form_class: 'inline',
+      class: 'ml-4 rounded-lg py-1 px-2 text-black bg-red-400' %>
+    </td>
+    <% else %>
+      <td></td>
+    <% end %>
+    <td class="text-right">
+      <%= button_to 'Delete Item', line_item, method: :delete, class: 'ml-4 rounded-lg py-1 px-2 text-black bg-blue-400' %>
+    </td>
+  </tr>
+</div

@@ -64,21 +64,21 @@ class LineItemsController < ApplicationController
 
   def decrement
     @line_item = LineItem.find(params[:id])
+    if @line_item.quantity > 1
+      @line_item.quantity -= 1
+      @line_item.save
+    else
+      @line_item.destroy
+    end
 
     respond_to do |format|
-      if @line_item.quantity > 1
-        @line_item.quantity -= 1
-      else
-        @line_item.destroy
-      end
       if @line_item.save
         format.turbo_stream { @current_item = @line_item }
         format.html { redirect_to store_index_url }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
     end
+    redirect_to store_index_url
   end
 
   private
