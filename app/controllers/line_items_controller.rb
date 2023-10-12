@@ -71,13 +71,14 @@ class LineItemsController < ApplicationController
       @line_item.destroy
     end
 
-    respond_to do |format|
-      if @line_item.save
-        format.turbo_stream { @current_item = @line_item }
-        format.html { redirect_to store_index_url }
-      else
-      end
-    end
+    #respond_to do |format|
+      #if @line_item.save
+        #format.turbo_stream { @current_item = @line_item }
+        #format.html { redirect_to store_index_url }
+      #else
+        #format.html { render :new, status: :unprocessable_entity }
+      #end
+    #end
     redirect_to store_index_url
   end
 
