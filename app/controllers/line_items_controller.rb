@@ -1,24 +1,20 @@
 class LineItemsController < ApplicationController
   include CurrentCart
-  before_action :set_cart, only: %i[ create ]
-  before_action :set_line_item, only: %i[ show edit update destroy ]
+  before_action :set_cart, only: %i[create]
+  before_action :set_line_item, only: %i[show edit update destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_line_item
 
-  # GET /line_items or /line_items.json
   def index
     @line_items = LineItem.all
   end
 
-  # GET /line_items/1 or /line_items/1.json
   def show
   end
 
-  # GET /line_items/new
   def new
     @line_item = LineItem.new
   end
 
-  # GET /line_items/1/edit
   def edit
   end
 
@@ -39,7 +35,6 @@ class LineItemsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /line_items/1 or /line_items/1.json
   def update
 
     respond_to do |format|
@@ -53,7 +48,6 @@ class LineItemsController < ApplicationController
     end
   end
 
-  # DELETE /line_items/1 or /line_items/1.json
   def destroy
     @line_item.destroy
     respond_to do |format|

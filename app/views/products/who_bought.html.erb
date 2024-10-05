@@ -1,0 +1,14 @@
+<h1>Orders for <%= @product.title %> </h1>
+
+<ul>
+    <% @product.orders.each do |order| %>
+        <li>
+            Order ID: <%= order.id %><br>
+            Ordered at: <%= order.created_at %><br>
+            Order address: <%= order.address %><br>
+            Order email: <%= order.email %><br>
+            Order Payment Type: <%= order.pay_type%><br>
+            <!-- Add more order details here as needed -->
+        </li>
+    <% end %>
+</ul>

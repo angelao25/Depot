@@ -5,9 +5,11 @@ one:
   cart: one
   price: 9.99
   quantity: 1
+  order: two
 
 two:
   product: two
+  order: one
   cart: two
   price: 9.99
   quantity: 1
