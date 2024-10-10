@@ -2,7 +2,7 @@
   <%= render 'notice' %>
 
   <% if session[:counter] > 5 %>
-  <p>This page has been accessed <%= pluralize(session[:counter], 'time') %>.</p>
+    <p>This page has been accessed <%= pluralize(session[:counter], 'time') %>.</p>
   <% end %>
 
 

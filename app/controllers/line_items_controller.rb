@@ -27,6 +27,7 @@ class LineItemsController < ApplicationController
         format.turbo_stream { @current_item = @line_item }
         format.html { redirect_to store_index_url }
         format.json { render :show, status: :created, location: @line_item }
+        #Reset the counter to zero whenever the user adds something to the cart.
         session[:counter] = 0
       else
         format.html { render :new, status: :unprocessable_entity }
